@@ -110,7 +110,9 @@ void mergeSort(vector<int>& a, vector<int>& tmp, int left, int right) {
 
 // Swap function
 void swap(int *a, int *b) {
-    /* your code here */
+    int temp = *a; //Save a into temp
+    *a = *b; //Assign a with original b value
+    *b = temp; //Assign b with original a value
 }
 
 // BubbleSort function
