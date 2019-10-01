@@ -16,6 +16,13 @@ void swap(int *a, int *b);
 void bubbleSort(int *a, int n);
 
 int main(int argc, char* argv[]) {
+    //begin function with unit test of swap
+    int test_a = 1;
+    int test_b = 2;
+    swap(&test_a, &test_b);
+    assert(test_b == 1 && test_a == 2);//will only print if assertion fails
+
+
     // get input: first is random seed, second is vector length
     int seed, length;
 
@@ -122,9 +129,9 @@ void mergeSort(vector<int> &a, vector<int> &tmp, int left, int right) {
 
 // Swap function
 void swap(int *a, int *b) {
-    int temp = *a; //Save a into temp
-    *a = *b; //Assign a with original b value
-    *b = temp; //Assign b with original a value
+    int temp = *a; //Save value at a into temp
+    *a = *b; //Assign value at a with original value at b
+    *b = temp; //Assign value at b with original value at a
 }
 
 // BubbleSort function
