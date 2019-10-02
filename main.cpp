@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
     // define an integer pointer dynamically allocate an array of integers
     int* vPtr = new int[length];
 
-    //Print data to csv file
+    /*Print data to csv file
     for (int j = 0; j <= 10000; j = j +100) {
         srand(seed);
         length = j;
@@ -52,15 +52,15 @@ int main(int argc, char* argv[]) {
         vector<int> t(length); // temporary workspace
 
         // define an integer pointer dynamically allocate an array of integers
-        int* vPtr = new int[length];
+        int* vPtr = new int[length];*/
 
         // initialize and print input
-        //cout << "Unsorted:" << endl;
+        cout << "Unsorted:" << endl;
         for (int i = 0; i < v.size(); i++) {
             v.at(i) = rand() % 100;
-            //cout << v.at(i) << '\t';
+            cout << v.at(i) << '\t';
         }
-        //cout << endl;
+        cout << endl;
 
         // copy the random list of integers from vector to array
         for (int i = 0; i < length; i++) {
@@ -89,25 +89,25 @@ int main(int argc, char* argv[]) {
         }
 
         // print sorted vector after mergeSort
-        //cout << "Sorted (mergeSort):" << endl;
-        //for (int i = 0; i < v.size(); i++) {
-        //cout << v.at(i) << '\t';
-        //}
-        //cout << endl;
+        cout << "Sorted (mergeSort):" << endl;
+        for (int i = 0; i < v.size(); i++) {
+        cout << v.at(i) << '\t';
+        }
+        cout << endl;
 
         // print sorted array after bubbleSort
-        //cout << "Sorted (bubbleSort):" << endl;
-        //for (int i = 0; i < length; i++) {
-        //cout << vPtr[i] << '\t';
-        //}
-        //cout << endl;
+        cout << "Sorted (bubbleSort):" << endl;
+        for (int i = 0; i < length; i++) {
+        cout << vPtr[i] << '\t';
+        }
+        cout << endl;
 
         // print elapsed time for mergeSort and bubbleSort
         double elapsed_mergeSort = double(end_mergeSort - start_mergeSort) / CLOCKS_PER_SEC;
         double elapsed_bubbleSort = double(end_bubbleSort - start_bubbleSort) / CLOCKS_PER_SEC;
 
-        cout << j << "\t" << elapsed_mergeSort << "\t" << elapsed_bubbleSort << endl;
-    }
+        cout << elapsed_mergeSort << "\t" << elapsed_bubbleSort << endl;
+    //}
 
     return 0;
 }
