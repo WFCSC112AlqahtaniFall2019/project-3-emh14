@@ -125,6 +125,7 @@ int main(int argc, char* argv[]) {
 
         //delete pointer from heap
         delete[] vPtr;
+        vPtr = nullptr;
     //}
 
     return 0;
