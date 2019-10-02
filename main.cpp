@@ -33,6 +33,12 @@ int main(int argc, char* argv[]) {
     int seed, length;
 
     //command line arguments
+    if (argc!=3)
+    {
+        cout << "Invalid entry. Usage: ./BubbleSort <seed> <length>" << endl; //tell user how to correct invalid entry
+        exit(1); //quits the program
+    }
+    /*
     if (argc == 3){//function, seed, length
         seed = atoi(argv[1]);
         length = atoi(argv[2]);
@@ -40,7 +46,10 @@ int main(int argc, char* argv[]) {
     // Default to cin if command line argument is not found
     else{
         cin >> seed >> length;
-    }
+    }*/
+
+    seed = atoi(argv[1]);
+    length = atoi(argv[2]);
     srand(seed);
 
     vector<int> v(length); // vector to be sorted
