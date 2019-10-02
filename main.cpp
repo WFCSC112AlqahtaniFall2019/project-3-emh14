@@ -92,6 +92,16 @@ int main(int argc, char* argv[]) {
             assert(v.at(i - 1) <= v.at(i));//will only print if assertion fails
         }
 
+
+        //Hard Code Unit Test for BubbleSort
+        int test_length = 3;
+        int* test_Ptr = new int[test_length];
+        test_Ptr[0] = 1;
+        test_Ptr[1] = 4;
+        test_Ptr[2] = 3;
+        bubbleSort(test_Ptr, test_length);
+        assert(test_Ptr[0] < test_Ptr[1] && test_Ptr[1] < test_Ptr[2]);//will only print if assertion fails
+
         clock_t start_bubbleSort = clock();
         // sort array using bubbleSort
         bubbleSort(vPtr, length);
