@@ -80,7 +80,7 @@ int main(int argc, char* argv[]) {
 
         // check output, make sure vector is sorted after mergeSort
         for (int i = 1; i < v.size(); i++) {
-            assert(v.at(i - 1) <= v.at(i));
+            assert(v.at(i - 1) <= v.at(i));//will only print if assertion fails
         }
 
         clock_t start_bubbleSort = clock();
@@ -91,7 +91,7 @@ int main(int argc, char* argv[]) {
         // check output, make sure array is sorted after bubbleSort
         //Bubble Sort Unit Test
         for (int i = 1; i < length; i++) {
-            assert(vPtr[i - 1] <= vPtr[i]);
+            assert(vPtr[i - 1] <= vPtr[i]);//will only print if assertion fails
         }
 
         // print sorted vector after mergeSort
@@ -120,7 +120,7 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-
+//mergeSortedLists function provided as started code
 void mergeSortedLists(vector<int> &a, vector<int> &tmp, int leftPos, int rightPos, int rightEnd) {
     int leftEnd = rightPos - 1;
     int tempPos = leftPos;
@@ -146,7 +146,7 @@ void mergeSortedLists(vector<int> &a, vector<int> &tmp, int leftPos, int rightPo
         a[rightEnd] = tmp[rightEnd];
     }
 }
-
+//mergeSorts function provided as started code
 void mergeSort(vector<int> &a, vector<int> &tmp, int left, int right) {
     if (left < right) {
         int center = (left + right) / 2;
@@ -167,8 +167,8 @@ void swap(int *a, int *b) {
 void bubbleSort(int *a, int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
-            if (a[j] > a[j+1]){
-                swap(a[j], a[j+1]);
+            if (a[j] > a[j+1]){//if one value is greater than the one following it...
+                swap(a[j], a[j+1]);//swap them
             }
         }
     }
