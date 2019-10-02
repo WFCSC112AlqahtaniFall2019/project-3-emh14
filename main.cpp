@@ -44,8 +44,15 @@ int main(int argc, char* argv[]) {
     int* vPtr = new int[length];
 
     //Print data to csv file
-    for (int i = 0; i <= 10000; i = i +100) {
+    for (int j = 0; j <= 10000; j = j +100) {
         srand(seed);
+        length = j;
+
+        vector<int> v(length); // vector to be sorted
+        vector<int> t(length); // temporary workspace
+
+        // define an integer pointer dynamically allocate an array of integers
+        int* vPtr = new int[length];
 
         // initialize and print input
         //cout << "Unsorted:" << endl;
@@ -99,7 +106,7 @@ int main(int argc, char* argv[]) {
         double elapsed_mergeSort = double(end_mergeSort - start_mergeSort) / CLOCKS_PER_SEC;
         double elapsed_bubbleSort = double(end_bubbleSort - start_bubbleSort) / CLOCKS_PER_SEC;
 
-        cout << i << "\t" << elapsed_mergeSort << "\t" << elapsed_bubbleSort << endl;
+        cout << j << "\t" << elapsed_mergeSort << "\t" << elapsed_bubbleSort << endl;
     }
 
     return 0;
