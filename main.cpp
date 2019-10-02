@@ -43,61 +43,64 @@ int main(int argc, char* argv[]) {
     // define an integer pointer dynamically allocate an array of integers
     int* vPtr = new int[length];
 
-    // initialize and print input
-    //cout << "Unsorted:" << endl;
-    for (int i = 0; i < v.size(); i++) {
-        v.at(i) = rand() % 100;
+    //Print data to csv file
+    for (int i = 0; i <= 10000; i = i +100) {
+        srand(seed);
+
+        // initialize and print input
+        //cout << "Unsorted:" << endl;
+        for (int i = 0; i < v.size(); i++) {
+            v.at(i) = rand() % 100;
+            //cout << v.at(i) << '\t';
+        }
+        //cout << endl;
+
+        // copy the random list of integers from vector to array
+        for (int i = 0; i < length; i++) {
+            vPtr[i] = v.at(i);
+        }
+
+        clock_t start_mergeSort = clock();
+        // sort vector using mergeSort
+        mergeSort(v, t, 0, v.size() - 1);
+        clock_t end_mergeSort = clock();
+
+        // check output, make sure vector is sorted after mergeSort
+        for (int i = 1; i < v.size(); i++) {
+            assert(v.at(i - 1) <= v.at(i));
+        }
+
+        clock_t start_bubbleSort = clock();
+        // sort array using bubbleSort
+        bubbleSort(vPtr, length);
+        clock_t end_bubbleSort = clock();
+
+        // check output, make sure array is sorted after bubbleSort
+        //Bubble Sort Unit Test
+        for (int i = 1; i < length; i++) {
+            assert(vPtr[i - 1] <= vPtr[i]);
+        }
+
+        // print sorted vector after mergeSort
+        //cout << "Sorted (mergeSort):" << endl;
+        //for (int i = 0; i < v.size(); i++) {
         //cout << v.at(i) << '\t';
-    }
-    //cout << endl;
+        //}
+        //cout << endl;
 
-    // copy the random list of integers from vector to array
-    for (int i = 0; i < length; i++){
-        vPtr[i] = v.at(i);
-    }
-
-    clock_t start_mergeSort = clock();
-    // sort vector using mergeSort
-    mergeSort(v, t, 0, v.size() - 1);
-    clock_t end_mergeSort = clock();
-
-    // check output, make sure vector is sorted after mergeSort
-    for (int i = 1; i < v.size(); i++) {
-        assert(v.at(i - 1) <= v.at(i));
-    }
-
-    clock_t start_bubbleSort = clock();
-    // sort array using bubbleSort
-    bubbleSort(vPtr, length);
-    clock_t end_bubbleSort = clock();
-
-    // check output, make sure array is sorted after bubbleSort
-    //Bubble Sort Unit Test
-    for (int i = 1; i < length; i++ ){
-        assert(vPtr[i-1] <= vPtr[i]);
-    }
-
-    // print sorted vector after mergeSort
-    //cout << "Sorted (mergeSort):" << endl;
-    for (int i = 0; i < v.size(); i++) {
-        //cout << v.at(i) << '\t';
-    }
-    //cout << endl;
-
-    // print sorted array after bubbleSort
-    //cout << "Sorted (bubbleSort):" << endl;
-    for (int i = 0; i < length; i++) {
+        // print sorted array after bubbleSort
+        //cout << "Sorted (bubbleSort):" << endl;
+        //for (int i = 0; i < length; i++) {
         //cout << vPtr[i] << '\t';
+        //}
+        //cout << endl;
+
+        // print elapsed time for mergeSort and bubbleSort
+        double elapsed_mergeSort = double(end_mergeSort - start_mergeSort) / CLOCKS_PER_SEC;
+        double elapsed_bubbleSort = double(end_bubbleSort - start_bubbleSort) / CLOCKS_PER_SEC;
+
+        cout << i << "\t" << elapsed_mergeSort << "\t" << elapsed_bubbleSort << endl;
     }
-    //cout << endl;
-
-    // print elapsed time for mergeSort and bubbleSort
-    double elapsed_mergeSort = double(end_mergeSort - start_mergeSort) / CLOCKS_PER_SEC;
-    double elapsed_bubbleSort = double(end_bubbleSort - start_bubbleSort) / CLOCKS_PER_SEC;
-
-    //cout << elapsed_mergeSort << " " << elapsed_bubbleSort << endl;
-
-    //piped to excel file
 
     return 0;
 }
