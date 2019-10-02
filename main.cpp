@@ -107,6 +107,9 @@ int main(int argc, char* argv[]) {
         double elapsed_bubbleSort = double(end_bubbleSort - start_bubbleSort) / CLOCKS_PER_SEC;
 
         cout << elapsed_mergeSort << "\t" << elapsed_bubbleSort << endl;
+
+        //delete pointer from heap
+        delete[] vPtr;
     //}
 
     return 0;
