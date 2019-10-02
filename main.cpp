@@ -1,3 +1,9 @@
+/* Ethan Harrison
+ * CSC 112
+ * Project 3
+ * Bubble Sort
+ * */
+
 #include <iostream>
 #include <vector>
 #include <ctime>
@@ -43,7 +49,7 @@ int main(int argc, char* argv[]) {
     // define an integer pointer dynamically allocate an array of integers
     int* vPtr = new int[length];
 
-    /*Print data to csv file
+    /*//Print data to csv file
     for (int j = 0; j <= 10000; j = j +100) {
         srand(seed);
         length = j;
